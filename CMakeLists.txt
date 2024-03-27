@@ -3,4 +3,5 @@ project(CMPSC_472_RdWrBinary_File C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(CMPSC_472_RdWrBinary_File main.c)
+add_executable(CMPSC_472_RdWrBinary_File main.c
+        CMPSC472_BinaryFile_Data.bin.h)
