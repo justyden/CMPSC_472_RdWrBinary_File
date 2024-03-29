@@ -9,17 +9,37 @@
 //-----------------------------------------------------------
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "CMPSC472_BinaryFile_Data.bin.h"
 
 void writeToFileBinary() {
-    FILE *filePtr;
-    filePtr = fopen(FILENAME, "wb");
+    // Pointer to the file, if the file does not exist create it. If it does, overwrite it.
+    FILE *filePtr = fopen(FILENAME, "wb");
+
     if (filePtr == NULL) {
-        printf("An error occurred when opening the file..\n");
+        printf("An error occurred when opening the file.\n");
         exit(1);
     }
 
+    // Create the data array containing each record.
+    struct Data data[NUM_RECORDS] = {
+            {1, 10},
+            {2,14},
+            {3, 110},
+            {4, 4002},
+            {5, 79}
+    };
+
+    // Write to information to the file.
+    fwrite(data, sizeof(struct Data), NUM_RECORDS, filePtr);
+
+
+    fclose(filePtr); // Close the file.
+
+    printf("The file containing binary information was created.\n");
+}
+
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    // Create and write to the binary file.
+    writeToFileBinary();
 }

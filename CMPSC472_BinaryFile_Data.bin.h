@@ -1,12 +1,12 @@
 #ifndef CMPSC_472_RDWRBINARY_FILE_CMPSC472_BINARYFILE_DATA_BIN_H
 #define CMPSC_472_RDWRBINARY_FILE_CMPSC472_BINARYFILE_DATA_BIN_H
 
-#define FILENAME "C:/Temp/CmpSc472_BinaryFile_Data.bin"
+#define FILENAME "BinaryMsg.txt"
+#define NUM_RECORDS 5
 
 // Structure definition
 struct Data {
-    int id;
-    char name[MAX_NAME_LENGTH];
+    int record;
     int value;
 };
 
