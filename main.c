@@ -1,5 +1,6 @@
 //-----------------------------------------------------------
 // Tyler Thompson CMPSC 472 Spring 2024
+// Team Member Eric Estadt
 //
 // This application is a team oriented. The goal of this
 // specific file is to write binary to a file given
@@ -10,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "CMPSC472_BinaryFile_Data.bin.h"
 
 void writeToFileBinary() {
@@ -21,17 +23,16 @@ void writeToFileBinary() {
         exit(1);
     }
 
-    // Create the data array containing each record.
-    struct Data data[NUM_RECORDS] = {
-            {1, 10},
-            {2,14},
-            {3, 110},
-            {4, 4002},
-            {5, 79}
-    };
+    // Create the struct from the .h file.
+    struct Data data;
+    data.a = 10;
+    data.b = 'X';
+    data.d = 3.14;
+    data.e = 100000;
+    strcpy(data.f, "Hello");
 
     // Write to information to the file.
-    fwrite(data, sizeof(struct Data), NUM_RECORDS, filePtr);
+    fwrite(&data, sizeof(struct Data), NUM_RECORDS, filePtr);
 
 
     fclose(filePtr); // Close the file.
